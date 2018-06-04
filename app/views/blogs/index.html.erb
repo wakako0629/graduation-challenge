@@ -1,23 +1,39 @@
-<h1>ブログ一覧</h1>
+<html>
+<body>
+  <section class="main-header">
+    <%= image_tag('top.jpg') %>
+  </section>
+<br></br>
+<h3><%= link_to '新しく画像を投稿する', new_blog_path %></h3>
 
-<p><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <% @blogs.each do |blog| %>
+      <div class="col-xs-12 col-md-12 blog-panel">
+         <h2><%="Title:" %><%= blog.title %></h2>
+         <!-- <p><"%= image_tag(blog.image_url,:size => "250x250") unless blog.image.blank? %>"</p> -->
+         <p><%="Comment:" %><%= blog.content %></p>
+        <div class="blog-links">
+          <div class="btn-group">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           Action <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+          <li><%= link_to 'Show', blog, class: 'btn btn-default' %></li>
+          <%  if blog.user_id == current_user.id %>
+             <li><%= link_to 'Edit', edit_blog_path(blog), class: 'btn btn-info' %></li>
+             <li><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></li>
+           <% else %>
 
-<table>
-  <tr>
-    <th>タイトル</th>
-    <th>内容</th>
-  </tr>
-
-<% @blogs.each do |blog| %>
-  <tr>
-    <td><%= blog.title %></td>
-    <td><%= blog.content %></td>
-    <td><%= link_to '詳細を確認する', blog_path(blog.id) %></td>
-    <td><%= link_to "ブログを編集する", edit_blog_path(blog.id) %></td>
-    <td><%= link_to 'ブログを削除する', blog_path(blog.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td>
-  </tr>
-<% end %>
-
-</table>
-
-<%= link_to '新しくブログを投稿する', new_blog_path %>
+           <% end %>
+           </ul>
+        </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+</div>
+  
+  </body>
+</html>

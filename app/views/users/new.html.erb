@@ -1,0 +1,39 @@
+<h1>Sign up</h1>
+
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h2><% pluralize(@user.errors.count,"error") %>エラーがあります。</h2>
+    <ul>
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+ <div class="container">
+ <div class="row">
+<%= form_with(model: @user, local: true) do |f| %>  
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+  
+  <%= f.label :icon %>
+  <center><%= f.file_field :icon,id: :user_icon %></center>
+  <%= f.hidden_field :icon_cache %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %>
+
+   <br>
+  <br><%= f.submit "Create my account" %>
+<% end %>
+
+</div>
+</div>
