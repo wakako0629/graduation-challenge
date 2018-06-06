@@ -1,3 +1,10 @@
 <h1>ブログ詳細画面</h1>
+ <div class="container">
+ <div class="row">
 <p>タイトル: <%= @blog.title %></p>
 <p>内容: <%= @blog.content %></p>
+<p>画像:</p>
+<p><%= image_tag(@blog.image_url,:size => "250x250") unless @blog.image.blank? %></p>
+
+  </div>
+  </div>

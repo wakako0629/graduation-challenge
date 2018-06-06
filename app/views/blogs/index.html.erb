@@ -4,14 +4,14 @@
     <%= image_tag('top.jpg') %>
   </section>
 <br></br>
-<h3><%= link_to '新しく画像を投稿する', new_blog_path %></h3>
+<h3><%= link_to '新しく日記を投稿する', new_blog_path %></h3>
 
 <div class="container">
   <div class="row">
     <% @blogs.each do |blog| %>
       <div class="col-xs-12 col-md-12 blog-panel">
          <h2><%="Title:" %><%= blog.title %></h2>
-         <!-- <p><"%= image_tag(blog.image_url,:size => "250x250") unless blog.image.blank? %>"</p> -->
+         <p><%= image_tag(blog.image_url,:size => "250x250") unless blog.image.blank? %></p>
          <p><%="Comment:" %><%= blog.content %></p>
         <div class="blog-links">
           <div class="btn-group">

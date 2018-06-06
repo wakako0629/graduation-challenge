@@ -8,4 +8,6 @@ class User < ApplicationRecord
   
   has_many :blogs
 
+  mount_uploader :icon,ImageUploader
+  
 end

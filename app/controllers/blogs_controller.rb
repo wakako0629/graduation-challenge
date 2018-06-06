@@ -3,7 +3,7 @@ class BlogsController < ApplicationController
     before_action :set_blog, only: [:show, :edit, :update, :destroy ]
     before_action :login_confirm, only: [:show, :edit, :new ,:update ,:destroy]
   
-    def index
+     def index
       @blogs = Blog.all
     end
     
@@ -24,7 +24,7 @@ class BlogsController < ApplicationController
    def create
      @blog = Blog.new(blog_params)
      @blog.user_id = current_user.id
-     # @blog.image.retrieve_from_cache! params[:cache][:image]
+     @blog.image.retrieve_from_cache! params[:cache][:image]
      @blog.save!
      if @blog.save
        redirect_to blogs_path, notice: "ブログを作成しました！"
@@ -48,7 +48,10 @@ class BlogsController < ApplicationController
      end
    end
 
-
+   def show
+     @favorite = current_user.favorites.find_by(blog_id: @blog.id)
+     #@blog = Blog.find(params[:id])
+   end
 
    def destroy
      @blog.destroy
@@ -74,3 +77,4 @@ class BlogsController < ApplicationController
          
     
 end
+
