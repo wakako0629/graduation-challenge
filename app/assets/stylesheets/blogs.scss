@@ -4,19 +4,22 @@
 
 footer {
   width: 100%;
-  background-color:#2c3e50;
+  background-color:white;
   padding: 20px 0 10px 0;
-  color: white;
+  color: #888888;
   margin: auto;
   font-size: 12px;
   bottom: 0;
+  border-top: solid thin #AAAAAA;
 }
 
 header {
   width: 100%;
-  background-color: #2c3e50;
+  background-color: white;
   height: 65px;
-  
+  color: #888888;
+  border-bottom:solid thin #AAAAAA;
+  font-size: 12px;
 }
 
 header ul {
@@ -58,7 +61,7 @@ header ul:after {
 
 .about {
   background-color: white;
-  color: #333;
+  color: #444444;
   padding: 80px;
 }
 
@@ -82,25 +85,28 @@ header ul:after {
 
 
 
-body,
 html {
-  width: 100%;
-  height: 100%;
+  position: relative;
+  min-height: 100%;
+  color: #444444;
 }
 
 body {
-  font-family: 'Source Sans Pro';
+  text-align: center;
+  background-color:#D7EEFF;
+  color: #444444;
 }
 
 .container{
     margin-top:20px;
     padding-bottom: 100px;
     width: 100%;
+    color: #444444;
 }
 
 
 .col-xs-12 {
-  border: solid thin #ffcc00;
+  border-top: solid thin #AAAAAA;
   width: 100%;
   padding-bottom: 20px;
 }

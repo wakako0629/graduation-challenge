@@ -11,7 +11,7 @@
  　 <header>
     　 <ul>
     　     <% if logged_in? %>
-            <li><%= link_to 'InstaAPP', '/blogs' %></li>
+            <li><%= link_to 'Memory', '/blogs' %></li>
             <li><%= link_to "Profile", user_path(current_user.id) %></li>
             <li><%= link_to "Logout", session_path(current_user.id), method: :delete %></li>
           <% else %>
